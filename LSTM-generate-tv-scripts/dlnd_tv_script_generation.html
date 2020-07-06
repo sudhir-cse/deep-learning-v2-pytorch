@@ -13040,64 +13040,6 @@ ul.typeahead-list  > li > a.pull-right {
 .highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
-<style type="text/css">
-    
-/* Temporary definitions which will become obsolete with Notebook release 5.0 */
-.ansi-black-fg { color: #3E424D; }
-.ansi-black-bg { background-color: #3E424D; }
-.ansi-black-intense-fg { color: #282C36; }
-.ansi-black-intense-bg { background-color: #282C36; }
-.ansi-red-fg { color: #E75C58; }
-.ansi-red-bg { background-color: #E75C58; }
-.ansi-red-intense-fg { color: #B22B31; }
-.ansi-red-intense-bg { background-color: #B22B31; }
-.ansi-green-fg { color: #00A250; }
-.ansi-green-bg { background-color: #00A250; }
-.ansi-green-intense-fg { color: #007427; }
-.ansi-green-intense-bg { background-color: #007427; }
-.ansi-yellow-fg { color: #DDB62B; }
-.ansi-yellow-bg { background-color: #DDB62B; }
-.ansi-yellow-intense-fg { color: #B27D12; }
-.ansi-yellow-intense-bg { background-color: #B27D12; }
-.ansi-blue-fg { color: #208FFB; }
-.ansi-blue-bg { background-color: #208FFB; }
-.ansi-blue-intense-fg { color: #0065CA; }
-.ansi-blue-intense-bg { background-color: #0065CA; }
-.ansi-magenta-fg { color: #D160C4; }
-.ansi-magenta-bg { background-color: #D160C4; }
-.ansi-magenta-intense-fg { color: #A03196; }
-.ansi-magenta-intense-bg { background-color: #A03196; }
-.ansi-cyan-fg { color: #60C6C8; }
-.ansi-cyan-bg { background-color: #60C6C8; }
-.ansi-cyan-intense-fg { color: #258F8F; }
-.ansi-cyan-intense-bg { background-color: #258F8F; }
-.ansi-white-fg { color: #C5C1B4; }
-.ansi-white-bg { background-color: #C5C1B4; }
-.ansi-white-intense-fg { color: #A1A6B2; }
-.ansi-white-intense-bg { background-color: #A1A6B2; }
-
-.ansi-bold { font-weight: bold; }
-
-    </style>
-<style type="text/css">
-    body[data-notebook-name] > #header #header-container:not(.show-panel), /* body has data-notebook-name attribute when 
-a notebook is open. this rule won't be applied when the notebook is not open (in 404 view for example) */
-body[data-notebook-name] #menubar-container #maintoolbar:not(.show-panel),
-body[data-notebook-name] #menubar-container ul.navbar-nav:not(.show-panel) {
-  display: none;
-}
-
-#menubar.only-panel #menus.navbar-default {
-    background: #fff;
-    border-color: #fff;
-}
-
-.toolbar.with-statusbar{
-    margin-top: 3px;
-    margin-bottom: 0;
-}
-
-    </style>
 
 
 <style type="text/css">
@@ -13131,7 +13073,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -13158,13 +13100,8 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="TV-Script-Generation">TV Script Generation<a class="anchor-link" href="#TV-Script-Generation">&#182;</a></h1><p>In this project, you'll generate your own <a href="https://en.wikipedia.org/wiki/Seinfeld">Seinfeld</a> TV scripts using RNNs.  You'll be using part of the <a href="https://www.kaggle.com/thec03u5/seinfeld-chronicles#scripts.csv">Seinfeld dataset</a> of scripts from 9 seasons.  The Neural Network you'll build will generate a new ,"fake" TV script, based on patterns it recognizes in this training data.</p>
-<h2 id="Get-the-Data">Get the Data<a class="anchor-link" href="#Get-the-Data">&#182;</a></h2><p>The data is already provided for you in <code>./data/Seinfeld_Scripts.txt</code> and you're encouraged to open that file and look at the text.</p>
-<blockquote><ul>
-<li>As a first step, we'll load in this data and look at some samples. </li>
-<li>Then, you'll be tasked with defining and training an RNN to generate a new script!</li>
-</ul>
-</blockquote>
+<h1 id="TV-Script-Generation">TV Script Generation<a class="anchor-link" href="#TV-Script-Generation">&#182;</a></h1><p>In this project, I'll generate my own <a href="https://en.wikipedia.org/wiki/Seinfeld">Seinfeld</a> TV scripts using RNNs (LSTM).  I'll be using part of the <a href="https://www.kaggle.com/thec03u5/seinfeld-chronicles#scripts.csv">Seinfeld dataset</a> of scripts from 9 seasons.  The Neural Network I'll build will generate a new ,"fake" TV script, based on patterns it recognizes in this training data.</p>
+<h2 id="Get-the-Data">Get the Data<a class="anchor-link" href="#Get-the-Data">&#182;</a></h2><p>The data is provided in <code>./data/Seinfeld_Scripts.txt</code>. Load in this data and look at some sample.</p>
 
 </div>
 </div>
@@ -13174,10 +13111,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="c1"># load in data</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># load in data</span>
 <span class="kn">import</span> <span class="nn">helper</span>
 <span class="n">data_dir</span> <span class="o">=</span> <span class="s1">&#39;./data/Seinfeld_Scripts.txt&#39;</span>
 <span class="n">text</span> <span class="o">=</span> <span class="n">helper</span><span class="o">.</span><span class="n">load_data</span><span class="p">(</span><span class="n">data_dir</span><span class="p">)</span>
@@ -13191,7 +13125,7 @@ div#notebook {
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Explore-the-Data">Explore the Data<a class="anchor-link" href="#Explore-the-Data">&#182;</a></h2><p>Play around with <code>view_line_range</code> to view different parts of the data. This will give you a sense of the data you'll be working with. You can see, for example, that it is all lowercase text, and each new line of dialogue is separated by a newline character <code>\n</code>.</p>
+<h2 id="Explore-the-Data">Explore the Data<a class="anchor-link" href="#Explore-the-Data">&#182;</a></h2><p>Get a complete sense of data using <code>view_line_range</code> that helps in viewing different part of data.</p>
 
 </div>
 </div>
@@ -13203,9 +13137,6 @@ div#notebook {
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">view_line_range</span> <span class="o">=</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE</span>
-<span class="sd">&quot;&quot;&quot;</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Dataset Stats&#39;</span><span class="p">)</span>
@@ -13270,8 +13201,8 @@ george: yes, it was purple, i liked it, i dont actually recall considering the b
 </ul>
 <h3 id="Lookup-Table">Lookup Table<a class="anchor-link" href="#Lookup-Table">&#182;</a></h3><p>To create a word embedding, you first need to transform the words to ids.  In this function, create two dictionaries:</p>
 <ul>
-<li>Dictionary to go from the words to an id, we'll call <code>vocab_to_int</code></li>
-<li>Dictionary to go from the id to word, we'll call <code>int_to_vocab</code></li>
+<li>Dictionary to go from the words to an id, let's call <code>vocab_to_int</code></li>
+<li>Dictionary to go from the id to word, let's call <code>int_to_vocab</code></li>
 </ul>
 <p>Return these dictionaries in the following <strong>tuple</strong> <code>(vocab_to_int, int_to_vocab)</code></p>
 
@@ -13284,7 +13215,7 @@ george: yes, it was purple, i liked it, i dont actually recall considering the b
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">problem_unittests</span> <span class="k">as</span> <span class="nn">tests</span>
-<span class="kn">from</span> <span class="nn">collections</span> <span class="k">import</span> <span class="n">Counter</span>
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">Counter</span>
 
 <span class="k">def</span> <span class="nf">create_lookup_tables</span><span class="p">(</span><span class="n">text</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -13292,7 +13223,6 @@ george: yes, it was purple, i liked it, i dont actually recall considering the b
 <span class="sd">    :param text: The text of tv scripts split into words</span>
 <span class="sd">    :return: A tuple of dicts (vocab_to_int, int_to_vocab)</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># TODO: Implement Function</span>
     <span class="n">word_count</span> <span class="o">=</span> <span class="n">Counter</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
     <span class="n">vocab</span> <span class="o">=</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">word_count</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">word_count</span><span class="o">.</span><span class="n">get</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>    
     <span class="n">vocab_to_int</span> <span class="o">=</span> <span class="p">{</span><span class="n">word</span><span class="p">:</span> <span class="n">ii</span> <span class="k">for</span> <span class="n">ii</span><span class="p">,</span> <span class="n">word</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">vocab</span><span class="p">)}</span>
@@ -13301,10 +13231,9 @@ george: yes, it was purple, i liked it, i dont actually recall considering the b
     <span class="c1"># return tuple</span>
     <span class="k">return</span> <span class="p">(</span><span class="n">vocab_to_int</span><span class="p">,</span> <span class="n">int_to_vocab</span><span class="p">)</span>
 
-
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;&quot;</span>
+<span class="sd">TEST</span>
+<span class="sd">&quot;&quot;&quot;</span><span class="s2">&quot;</span>
 <span class="n">tests</span><span class="o">.</span><span class="n">test_create_lookup_tables</span><span class="p">(</span><span class="n">create_lookup_tables</span><span class="p">)</span>
 </pre></div>
 
@@ -13334,8 +13263,8 @@ george: yes, it was purple, i liked it, i dont actually recall considering the b
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Tokenize-Punctuation">Tokenize Punctuation<a class="anchor-link" href="#Tokenize-Punctuation">&#182;</a></h3><p>We'll be splitting the script into a word array using spaces as delimiters.  However, punctuations like periods and exclamation marks can create multiple ids for the same word. For example, "bye" and "bye!" would generate two different word ids.</p>
-<p>Implement the function <code>token_lookup</code> to return a dict that will be used to tokenize symbols like "!" into "||Exclamation_Mark||".  Create a dictionary for the following symbols where the symbol is the key and value is the token:</p>
+<h3 id="Tokenize-Punctuation">Tokenize Punctuation<a class="anchor-link" href="#Tokenize-Punctuation">&#182;</a></h3><p>Split the script into a word array using spaces as delimiters.  However, punctuations like periods and exclamation marks can create multiple ids for the same word. For example, "bye" and "bye!" would generate two different word ids.</p>
+<p>Implement the function <code>token_lookup</code> to return a dict that will be used to tokenize symbols like "!" into "||Exclamation_Mark||". Create a dictionary for the following symbols where the symbol is the key and value is the token:</p>
 <ul>
 <li>Period ( <strong>.</strong> )</li>
 <li>Comma ( <strong>,</strong> )</li>
@@ -13379,9 +13308,9 @@ george: yes, it was purple, i liked it, i dont actually recall considering the b
          
     <span class="k">return</span> <span class="n">tp_dict</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;&quot;</span>
+<span class="sd">TEST</span>
+<span class="sd">&quot;&quot;&quot;</span><span class="s2">&quot;</span>
 <span class="n">tests</span><span class="o">.</span><span class="n">test_tokenize</span><span class="p">(</span><span class="n">token_lookup</span><span class="p">)</span>
 </pre></div>
 
@@ -13411,7 +13340,7 @@ george: yes, it was purple, i liked it, i dont actually recall considering the b
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Pre-process-all-the-data-and-save-it">Pre-process all the data and save it<a class="anchor-link" href="#Pre-process-all-the-data-and-save-it">&#182;</a></h2><p>Running the code cell below will pre-process all the data and save it to file. You're encouraged to lok at the code for <code>preprocess_and_save_data</code> in the <code>helpers.py</code> file to see what it's doing in detail, but you do not need to change this code.</p>
+<h2 id="Pre-process-all-the-data-and-save-it">Pre-process all the data and save it<a class="anchor-link" href="#Pre-process-all-the-data-and-save-it">&#182;</a></h2><p>Run the code cell below to pre-process all the data and save it to file.</p>
 
 </div>
 </div>
@@ -13421,10 +13350,7 @@ george: yes, it was purple, i liked it, i dont actually recall considering the b
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="c1"># pre-process training data</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># pre-process training data</span>
 <span class="n">helper</span><span class="o">.</span><span class="n">preprocess_and_save_data</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">token_lookup</span><span class="p">,</span> <span class="n">create_lookup_tables</span><span class="p">)</span>
 </pre></div>
 
@@ -13436,7 +13362,7 @@ george: yes, it was purple, i liked it, i dont actually recall considering the b
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Check-Point">Check Point<a class="anchor-link" href="#Check-Point">&#182;</a></h1><p>This is your first checkpoint. If you ever decide to come back to this notebook or have to restart the notebook, you can start from here. The preprocessed data has been saved to disk.</p>
+<h1 id="Check-Point">Check Point<a class="anchor-link" href="#Check-Point">&#182;</a></h1><p>This is the first checkpoint. If you ever decide to come back to this notebook or have to restart the notebook, you can start from here. The preprocessed data has been saved to disk.</p>
 
 </div>
 </div>
@@ -13446,10 +13372,7 @@ george: yes, it was purple, i liked it, i dont actually recall considering the b
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">helper</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">helper</span>
 <span class="kn">import</span> <span class="nn">problem_unittests</span> <span class="k">as</span> <span class="nn">tests</span>
 
 <span class="n">int_text</span><span class="p">,</span> <span class="n">vocab_to_int</span><span class="p">,</span> <span class="n">int_to_vocab</span><span class="p">,</span> <span class="n">token_dict</span> <span class="o">=</span> <span class="n">helper</span><span class="o">.</span><span class="n">load_preprocess</span><span class="p">()</span>
@@ -13463,7 +13386,7 @@ george: yes, it was purple, i liked it, i dont actually recall considering the b
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Build-the-Neural-Network">Build the Neural Network<a class="anchor-link" href="#Build-the-Neural-Network">&#182;</a></h2><p>In this section, you'll build the components necessary to build an RNN by implementing the RNN Module and forward and backpropagation functions.</p>
+<h2 id="Build-the-Neural-Network">Build the Neural Network<a class="anchor-link" href="#Build-the-Neural-Network">&#182;</a></h2><p>This Section is about building the components necessary to build an RNN by implementing the RNN Module and forward and backpropagation functions.</p>
 <h3 id="Check-Access-to-GPU">Check Access to GPU<a class="anchor-link" href="#Check-Access-to-GPU">&#182;</a></h3>
 </div>
 </div>
@@ -13473,10 +13396,7 @@ george: yes, it was purple, i liked it, i dont actually recall considering the b
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">torch</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
 
 <span class="c1"># Check for a GPU</span>
 <span class="n">train_on_gpu</span> <span class="o">=</span> <span class="n">torch</span><span class="o">.</span><span class="n">cuda</span><span class="o">.</span><span class="n">is_available</span><span class="p">()</span>
@@ -13492,20 +13412,20 @@ george: yes, it was purple, i liked it, i dont actually recall considering the b
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Input">Input<a class="anchor-link" href="#Input">&#182;</a></h2><p>Let's start with the preprocessed input data. We'll use <a href="http://pytorch.org/docs/master/data.html#torch.utils.data.TensorDataset">TensorDataset</a> to provide a known format to our dataset; in combination with <a href="http://pytorch.org/docs/master/data.html#torch.utils.data.DataLoader">DataLoader</a>, it will handle batching, shuffling, and other dataset iteration functions.</p>
+<h2 id="Input">Input<a class="anchor-link" href="#Input">&#182;</a></h2><p>Let's start with the preprocessed input data. I'll use <a href="http://pytorch.org/docs/master/data.html#torch.utils.data.TensorDataset">TensorDataset</a> to provide a known format to the dataset; in combination with <a href="http://pytorch.org/docs/master/data.html#torch.utils.data.DataLoader">DataLoader</a>, it will handle batching, shuffling, and other dataset iteration functions.</p>
 <p>You can create data with TensorDataset by passing in feature and target tensors. Then create a DataLoader as usual.</p>
 
 <pre><code>data = TensorDataset(feature_tensors, target_tensors)
 data_loader = torch.utils.data.DataLoader(data, 
                                           batch_size=batch_size)</code></pre>
 <h3 id="Batching">Batching<a class="anchor-link" href="#Batching">&#182;</a></h3><p>Implement the <code>batch_data</code> function to batch <code>words</code> data into chunks of size <code>batch_size</code> using the <code>TensorDataset</code> and <code>DataLoader</code> classes.</p>
-<blockquote><p>You can batch words using the DataLoader, but it will be up to you to create <code>feature_tensors</code> and <code>target_tensors</code> of the correct size and content for a given <code>sequence_length</code>.</p>
+<blockquote><p>You can batch words using the DataLoader, then create <code>feature_tensors</code> and <code>target_tensors</code> of the correct size and content for a given <code>sequence_length</code>.</p>
 </blockquote>
 <p>For example, say we have these as input:</p>
 
 <pre><code>words = [1, 2, 3, 4, 5, 6, 7]
 sequence_length = 4</code></pre>
-<p>Your first <code>feature_tensor</code> should contain the values:</p>
+<p>The first <code>feature_tensor</code> should contain the values:</p>
 
 <pre><code>[1, 2, 3, 4]</code></pre>
 <p>And the corresponding <code>target_tensor</code> should just be the next "word"/tokenized word value:</p>
@@ -13525,7 +13445,7 @@ sequence_length = 4</code></pre>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
-<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="k">import</span> <span class="n">TensorDataset</span><span class="p">,</span> <span class="n">DataLoader</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">TensorDataset</span><span class="p">,</span> <span class="n">DataLoader</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 
@@ -13537,8 +13457,6 @@ sequence_length = 4</code></pre>
 <span class="sd">    :param batch_size: The size of each batch; the number of sequences in a batch</span>
 <span class="sd">    :return: DataLoader with batched data</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="c1"># TODO: Implement function</span>
-
     <span class="n">x</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="n">y</span> <span class="o">=</span> <span class="p">[]</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">words</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">sequence_length</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)):</span>
@@ -13556,9 +13474,6 @@ sequence_length = 4</code></pre>
     
     <span class="c1"># return a dataloader</span>
     <span class="k">return</span> <span class="n">data_loader</span>
-
-<span class="c1"># there is no test for this function, but you are encouraged to create</span>
-<span class="c1"># print statements and tests of your own</span>
 </pre></div>
 
     </div>
@@ -13569,9 +13484,8 @@ sequence_length = 4</code></pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Test-your-dataloader">Test your dataloader<a class="anchor-link" href="#Test-your-dataloader">&#182;</a></h3><p>You'll have to modify this code to test a batching function, but it should look fairly similar.</p>
-<p>Below, we're generating some test text data and defining a dataloader using the function you defined, above. Then, we are getting some sample batch of inputs <code>sample_x</code> and targets <code>sample_y</code> from our dataloader.</p>
-<p>Your code should return something like the following (likely in a different order, if you shuffled your data):</p>
+<h3 id="Test-the-dataloader">Test the dataloader<a class="anchor-link" href="#Test-the-dataloader">&#182;</a></h3><p>Generate some test text data and define a dataloader using the function defined above. Then, get some sample batch of inputs <code>sample_x</code> and targets <code>sample_y</code> from the dataloader.</p>
+<p>The code should return something like the following (likely in a different order, if you shuffled your data):</p>
 
 <pre><code>torch.Size([10, 5])
 tensor([[ 28,  29,  30,  31,  32],
@@ -13587,8 +13501,8 @@ tensor([[ 28,  29,  30,  31,  32],
 
 torch.Size([10])
 tensor([ 33,  26,  22,  39,  16,  28,  11,  43,  30,  12])</code></pre>
-<h3 id="Sizes">Sizes<a class="anchor-link" href="#Sizes">&#182;</a></h3><p>Your sample_x should be of size <code>(batch_size, sequence_length)</code> or (10, 5) in this case and sample_y should just have one dimension: batch_size (10).</p>
-<h3 id="Values">Values<a class="anchor-link" href="#Values">&#182;</a></h3><p>You should also notice that the targets, sample_y, are the <em>next</em> value in the ordered test_text data. So, for an input sequence <code>[ 28,  29,  30,  31,  32]</code> that ends with the value <code>32</code>, the corresponding output should be <code>33</code>.</p>
+<h3 id="Sizes">Sizes<a class="anchor-link" href="#Sizes">&#182;</a></h3><p>The sample_x should be of size <code>(batch_size, sequence_length)</code> or (10, 5) in this case and sample_y should just have one dimension: batch_size (10).</p>
+<h3 id="Values">Values<a class="anchor-link" href="#Values">&#182;</a></h3><p>Also notice that the targets, sample_y, are the <em>next</em> value in the ordered test_text data. So, for an input sequence <code>[ 28,  29,  30,  31,  32]</code> that ends with the value <code>32</code>, the corresponding output should be <code>33</code>.</p>
 
 </div>
 </div>
@@ -13655,7 +13569,7 @@ tensor([ 20,  11,  25,  24,  29,  15,  44,  21,  31,  38])
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h2 id="Build-the-Neural-Network">Build the Neural Network<a class="anchor-link" href="#Build-the-Neural-Network">&#182;</a></h2><p>Implement an RNN using PyTorch's <a href="http://pytorch.org/docs/master/nn.html#torch.nn.Module">Module class</a>. You may choose to use a GRU or an LSTM. To complete the RNN, you'll have to implement the following functions for the class:</p>
+<h2 id="Build-the-Neural-Network">Build the Neural Network<a class="anchor-link" href="#Build-the-Neural-Network">&#182;</a></h2><p>Implement an RNN using PyTorch's <a href="http://pytorch.org/docs/master/nn.html#torch.nn.Module">Module class</a> Using LSTM. To complete the RNN, implement the following functions for the class:</p>
 <ul>
 <li><code>__init__</code> - The initialize function. </li>
 <li><code>init_hidden</code> - The initialization function for an LSTM/GRU hidden state</li>
@@ -13664,7 +13578,7 @@ tensor([ 20,  11,  25,  24,  29,  15,  44,  21,  31,  38])
 <p>The initialize function should create the layers of the neural network and save them to the class. The forward propagation function will use these layers to run forward propagation and generate an output and a hidden state.</p>
 <p><strong>The output of this model should be the <em>last</em> batch of word scores</strong> after a complete sequence has been processed. That is, for each input sequence of words, we only want to output the word scores for a single, most likely, next word.</p>
 <h3 id="Hints">Hints<a class="anchor-link" href="#Hints">&#182;</a></h3><ol>
-<li>Make sure to stack the outputs of the lstm to pass to your fully-connected layer, you can do this with <code>lstm_output = lstm_output.contiguous().view(-1, self.hidden_dim)</code></li>
+<li>Make sure to stack the outputs of the lstm to pass to your fully-connected layer, this can be done this with <code>lstm_output = lstm_output.contiguous().view(-1, self.hidden_dim)</code></li>
 <li>You can get the last batch of word scores by shaping the output of the final, fully-connected layer like so:</li>
 </ol>
 
@@ -13685,7 +13599,7 @@ out = output[:, -1]</code></pre>
 
 <span class="k">class</span> <span class="nc">RNN</span><span class="p">(</span><span class="n">nn</span><span class="o">.</span><span class="n">Module</span><span class="p">):</span>
     
-    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">output_size</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">,</span> <span class="n">n_layers</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vocab_size</span><span class="p">,</span> <span class="n">output_size</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">,</span> <span class="n">n_layers</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">        Initialize the PyTorch RNN Module</span>
 <span class="sd">        :param vocab_size: The number of input dimensions of the neural network (the size of the vocabulary)</span>
@@ -13695,7 +13609,6 @@ out = output[:, -1]</code></pre>
 <span class="sd">        :param dropout: dropout to add in between LSTM/GRU layers</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="nb">super</span><span class="p">(</span><span class="n">RNN</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
-        <span class="c1"># TODO: Implement function</span>
         
         <span class="c1"># set class variables</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">output_size</span> <span class="o">=</span> <span class="n">output_size</span>
@@ -13706,9 +13619,7 @@ out = output[:, -1]</code></pre>
         <span class="bp">self</span><span class="o">.</span><span class="n">embedding</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Embedding</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="p">)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">lstm</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">LSTM</span><span class="p">(</span><span class="n">embedding_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">,</span> <span class="n">n_layers</span><span class="p">,</span>
                             <span class="n">dropout</span><span class="o">=</span><span class="n">dropout</span><span class="p">,</span> <span class="n">batch_first</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="c1">#         self.dropout = nn.Dropout(dropout)</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">fc</span> <span class="o">=</span> <span class="n">nn</span><span class="o">.</span><span class="n">Linear</span><span class="p">(</span><span class="n">hidden_dim</span><span class="p">,</span> <span class="n">output_size</span><span class="p">)</span>
-<span class="c1">#         self.softmax = nn.Softmax(dim=1)</span>
     
     <span class="k">def</span> <span class="nf">forward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">nn_input</span><span class="p">,</span> <span class="n">hidden</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;</span>
@@ -13717,7 +13628,6 @@ out = output[:, -1]</code></pre>
 <span class="sd">        :param hidden: The hidden state        </span>
 <span class="sd">        :return: Two Tensors, the output of the neural network and the latest hidden state</span>
 <span class="sd">        &quot;&quot;&quot;</span>
-        <span class="c1"># TODO: Implement function</span>
         <span class="n">batch_size</span> <span class="o">=</span> <span class="n">nn_input</span><span class="o">.</span><span class="n">size</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
         
         <span class="n">embeds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">embedding</span><span class="p">(</span><span class="n">nn_input</span><span class="p">)</span>
@@ -13725,7 +13635,6 @@ out = output[:, -1]</code></pre>
         <span class="n">lstm_out</span> <span class="o">=</span> <span class="n">lstm_out</span><span class="o">.</span><span class="n">contiguous</span><span class="p">()</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dim</span><span class="p">)</span>
 
         <span class="c1"># Stack up lstm output</span>
-<span class="c1">#         lstm_out = self.dropout(lstm_out)</span>
         <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">fc</span><span class="p">(</span><span class="n">lstm_out</span><span class="p">)</span>
         <span class="n">out</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">view</span><span class="p">(</span><span class="n">batch_size</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">output_size</span><span class="p">)[:,</span> <span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         
@@ -13739,7 +13648,7 @@ out = output[:, -1]</code></pre>
 <span class="sd">        :param batch_size: The batch_size of the hidden state</span>
 <span class="sd">        :return: hidden state of dims (n_layers, batch_size, hidden_dim)</span>
 <span class="sd">        &#39;&#39;&#39;</span>
-        <span class="c1"># Implement function</span>
+        <span class="c1"># initialize hidden state with zero weights</span>
         <span class="n">weight</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">parameters</span><span class="p">())</span><span class="o">.</span><span class="n">data</span>
         
         <span class="k">if</span><span class="p">(</span><span class="n">train_on_gpu</span><span class="p">):</span>
@@ -13748,14 +13657,12 @@ out = output[:, -1]</code></pre>
         <span class="k">else</span><span class="p">:</span>
             <span class="n">hidden</span> <span class="o">=</span> <span class="p">(</span><span class="n">weight</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_layers</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dim</span><span class="p">)</span><span class="o">.</span><span class="n">zero_</span><span class="p">(),</span>
                       <span class="n">weight</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">n_layers</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">hidden_dim</span><span class="p">)</span><span class="o">.</span><span class="n">zero_</span><span class="p">())</span>
-        
-        <span class="c1"># initialize hidden state with zero weights, and move to GPU if available</span>
-        
+            
         <span class="k">return</span> <span class="n">hidden</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;&quot;</span>
+<span class="sd">TEST</span>
+<span class="sd">&quot;&quot;&quot;</span><span class="s2">&quot;</span>
 <span class="n">tests</span><span class="o">.</span><span class="n">test_rnn</span><span class="p">(</span><span class="n">RNN</span><span class="p">,</span> <span class="n">train_on_gpu</span><span class="p">)</span>
 </pre></div>
 
@@ -13785,11 +13692,11 @@ out = output[:, -1]</code></pre>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Define-forward-and-backpropagation">Define forward and backpropagation<a class="anchor-link" href="#Define-forward-and-backpropagation">&#182;</a></h3><p>Use the RNN class you implemented to apply forward and back propagation. This function will be called, iteratively, in the training loop as follows:</p>
+<h3 id="Define-forward-and-backpropagation">Define forward and backpropagation<a class="anchor-link" href="#Define-forward-and-backpropagation">&#182;</a></h3><p>Use the RNN class implemented above to apply forward and back propagation. This function will be called, iteratively, in the training loop as follows:</p>
 
 <pre><code>loss = forward_back_prop(decoder, decoder_optimizer, criterion, inp, target)</code></pre>
 <p>And it should return the average loss over a batch and the hidden state returned by a call to <code>RNN(inp, hidden)</code>. Recall that you can get this loss by computing it, as usual, and calling <code>loss.item()</code>.</p>
-<p><strong>If a GPU is available, you should move your data to that GPU device, here.</strong></p>
+<p><strong>If a GPU is available, move your data to that GPU device, here.</strong></p>
 
 </div>
 </div>
@@ -13810,7 +13717,6 @@ out = output[:, -1]</code></pre>
 <span class="sd">    :return: The loss and the latest hidden state Tensor</span>
 <span class="sd">    &quot;&quot;&quot;</span>
         
-    <span class="c1"># TODO: Implement Function</span>
     <span class="n">hidden</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">([</span><span class="n">each</span><span class="o">.</span><span class="n">data</span> <span class="k">for</span> <span class="n">each</span> <span class="ow">in</span> <span class="n">hidden</span><span class="p">])</span>
     <span class="c1"># move data to GPU, if available</span>
     <span class="k">if</span><span class="p">(</span><span class="n">train_on_gpu</span><span class="p">):</span>
@@ -13833,9 +13739,9 @@ out = output[:, -1]</code></pre>
 
 <span class="c1"># Note that these tests aren&#39;t completely extensive.</span>
 <span class="c1"># they are here to act as general checks on the expected outputs of your functions</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE</span>
-<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">&quot;&quot;&quot;&quot;</span>
+<span class="sd">TEST</span>
+<span class="sd">&quot;&quot;&quot;</span><span class="s2">&quot;</span>
 <span class="n">tests</span><span class="o">.</span><span class="n">test_forward_back_prop</span><span class="p">(</span><span class="n">RNN</span><span class="p">,</span> <span class="n">forward_back_prop</span><span class="p">,</span> <span class="n">train_on_gpu</span><span class="p">)</span>
 </pre></div>
 
@@ -13866,7 +13772,7 @@ out = output[:, -1]</code></pre>
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Neural-Network-Training">Neural Network Training<a class="anchor-link" href="#Neural-Network-Training">&#182;</a></h2><p>With the structure of the network complete and data ready to be fed in the neural network, it's time to train it.</p>
-<h3 id="Train-Loop">Train Loop<a class="anchor-link" href="#Train-Loop">&#182;</a></h3><p>The training loop is implemented for you in the <code>train_decoder</code> function. This function will train the network over all the batches for the number of epochs given. The model progress will be shown every number of batches. This number is set with the <code>show_every_n_batches</code> parameter. You'll set this parameter along with other parameters in the next section.</p>
+<h3 id="Train-Loop">Train Loop<a class="anchor-link" href="#Train-Loop">&#182;</a></h3><p>The function below will train the network over all the batches for the number of epochs given. The model progress will be shown every number of batches. This number is set with the <code>show_every_n_batches</code> parameter. This parameter along with other parameters can be set in the next section.</p>
 
 </div>
 </div>
@@ -13876,11 +13782,7 @@ out = output[:, -1]</code></pre>
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
-<span class="sd">&quot;&quot;&quot;</span>
-
-<span class="k">def</span> <span class="nf">train_rnn</span><span class="p">(</span><span class="n">rnn</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">criterion</span><span class="p">,</span> <span class="n">n_epochs</span><span class="p">,</span> <span class="n">show_every_n_batches</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">train_rnn</span><span class="p">(</span><span class="n">rnn</span><span class="p">,</span> <span class="n">batch_size</span><span class="p">,</span> <span class="n">optimizer</span><span class="p">,</span> <span class="n">criterion</span><span class="p">,</span> <span class="n">n_epochs</span><span class="p">,</span> <span class="n">show_every_n_batches</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
     <span class="n">batch_losses</span> <span class="o">=</span> <span class="p">[]</span>
     
     <span class="n">rnn</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
@@ -14013,10 +13915,10 @@ Size of y: 892099
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Train">Train<a class="anchor-link" href="#Train">&#182;</a></h3><p>In the next cell, you'll train the neural network on the pre-processed data.  If you have a hard time getting a good loss, you may consider changing your hyperparameters. In general, you may get better results with larger hidden and n_layer dimensions, but larger models take a longer time to train.</p>
+<h3 id="Train">Train<a class="anchor-link" href="#Train">&#182;</a></h3><p>In the next cell, we are set to train the neural network on the pre-processed data.  If you have a hard time getting a good loss, you may consider changing your hyperparameters. In general, you may get better results with larger hidden and n_layer dimensions, but larger models take a longer time to train.</p>
 <blockquote><p><strong>You should aim for a loss less than 3.5.</strong></p>
 </blockquote>
-<p>You should also experiment with different sequence lengths, which determine the size of the long range dependencies that a model can learn.</p>
+<p>Experiment with different sequence lengths, which determine the size of the long range dependencies that a model can learn.</p>
 
 </div>
 </div>
@@ -14026,11 +13928,7 @@ Size of y: 892099
 <div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
-<span class="sd">&quot;&quot;&quot;</span>
-
-<span class="c1"># create model and move to gpu if available</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># create model and move to gpu if available</span>
 <span class="n">rnn</span> <span class="o">=</span> <span class="n">RNN</span><span class="p">(</span><span class="n">vocab_size</span><span class="p">,</span> <span class="n">output_size</span><span class="p">,</span> <span class="n">embedding_dim</span><span class="p">,</span> <span class="n">hidden_dim</span><span class="p">,</span> <span class="n">n_layers</span><span class="p">,</span> <span class="n">dropout</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="k">if</span> <span class="n">train_on_gpu</span><span class="p">:</span>
     <span class="n">rnn</span><span class="o">.</span><span class="n">cuda</span><span class="p">()</span>
@@ -14616,15 +14514,13 @@ Epoch:   20/20    Loss: 2.882309854030609
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Question:-How-did-you-decide-on-your-model-hyperparameters?">Question: How did you decide on your model hyperparameters?<a class="anchor-link" href="#Question:-How-did-you-decide-on-your-model-hyperparameters?">&#182;</a></h3><p>For example, did you try different sequence_lengths and find that one size made the model converge faster? What about your hidden_dim and n_layers; how did you decide on those?</p>
-
+<h3 id="Question:-How-to-decide-on-model-hyperparameters?">Question: How to decide on model hyperparameters?<a class="anchor-link" href="#Question:-How-to-decide-on-model-hyperparameters?">&#182;</a></h3>
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Answer:</strong> (Write answer, here)</p>
 <p><strong>sequence_length</strong>: The average length of sentences is 5. I tried some numbers around it like 10, 30, 50 and 200. Finally, I observed that sequence length of 10 is yielding better result.</p>
 <p><strong>hidden_dim</strong>: The more the better network learns but costs time. With that in mind, I tried 256 and 512. I ovserved that newtork with hidden_dim of 512 performed better in this case.</p>
 <p><strong>n_layers</strong>: As suggested to stay in the range 1-3. I chosse 2 and worked very well.</p>
@@ -14636,7 +14532,7 @@ Epoch:   20/20    Loss: 2.882309854030609
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <hr>
-<h1 id="Checkpoint">Checkpoint<a class="anchor-link" href="#Checkpoint">&#182;</a></h1><p>After running the above training cell, your model will be saved by name, <code>trained_rnn</code>, and if you save your notebook progress, <strong>you can pause here and come back to this code at another time</strong>. You can resume your progress by running the next cell, which will load in our word:id dictionaries <em>and</em> load in your saved model by name!</p>
+<h1 id="Checkpoint">Checkpoint<a class="anchor-link" href="#Checkpoint">&#182;</a></h1><p>After running the above training cell, the model will be saved by name, <code>trained_rnn</code>, and if you save your notebook progress, <strong>you can pause here and come back to this code at another time</strong>. You can resume your progress by running the next cell, which will load in our word:id dictionaries <em>and</em> load in your saved model by name!</p>
 
 </div>
 </div>
@@ -14646,10 +14542,7 @@ Epoch:   20/20    Loss: 2.882309854030609
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">torch</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">torch</span>
 <span class="kn">import</span> <span class="nn">helper</span>
 <span class="kn">import</span> <span class="nn">problem_unittests</span> <span class="k">as</span> <span class="nn">tests</span>
 
@@ -14666,7 +14559,7 @@ Epoch:   20/20    Loss: 2.882309854030609
 </div><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Generate-TV-Script">Generate TV Script<a class="anchor-link" href="#Generate-TV-Script">&#182;</a></h2><p>With the network trained and saved, you'll use it to generate a new, "fake" Seinfeld TV script in this section.</p>
-<h3 id="Generate-Text">Generate Text<a class="anchor-link" href="#Generate-Text">&#182;</a></h3><p>To generate the text, the network needs to start with a single word and repeat its predictions until it reaches a set length. You'll be using the <code>generate</code> function to do this. It takes a word id to start with, <code>prime_id</code>, and generates a set length of text, <code>predict_len</code>. Also note that it uses topk sampling to introduce some randomness in choosing the most likely next word, given an output set of word scores!</p>
+<h3 id="Generate-Text">Generate Text<a class="anchor-link" href="#Generate-Text">&#182;</a></h3><p>To generate the text, the network needs to start with a single word and repeat its predictions until it reaches a set length. Use <code>generate</code> function to do this. It takes a word id to start with, <code>prime_id</code>, and generates a set length of text, <code>predict_len</code>. Also note that it uses topk sampling to introduce some randomness in choosing the most likely next word, given an output set of word scores!</p>
 
 </div>
 </div>
@@ -14676,10 +14569,7 @@ Epoch:   20/20    Loss: 2.882309854030609
 <div class="prompt input_prompt">In&nbsp;[17]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE</span>
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">torch.nn.functional</span> <span class="k">as</span> <span class="nn">F</span>
 
 <span class="k">def</span> <span class="nf">generate</span><span class="p">(</span><span class="n">rnn</span><span class="p">,</span> <span class="n">prime_id</span><span class="p">,</span> <span class="n">int_to_vocab</span><span class="p">,</span> <span class="n">token_dict</span><span class="p">,</span> <span class="n">pad_value</span><span class="p">,</span> <span class="n">predict_len</span><span class="o">=</span><span class="mi">100</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
@@ -14775,9 +14665,6 @@ Epoch:   20/20    Loss: 2.882309854030609
 <span class="n">gen_length</span> <span class="o">=</span> <span class="mi">400</span> <span class="c1"># modify the length to your preference</span>
 <span class="n">prime_word</span> <span class="o">=</span> <span class="s1">&#39;elaine&#39;</span> <span class="c1"># name for starting the script</span>
 
-<span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">DON&#39;T MODIFY ANYTHING IN THIS CELL THAT IS BELOW THIS LINE</span>
-<span class="sd">&quot;&quot;&quot;</span>
 <span class="n">pad_word</span> <span class="o">=</span> <span class="n">helper</span><span class="o">.</span><span class="n">SPECIAL_WORDS</span><span class="p">[</span><span class="s1">&#39;PADDING&#39;</span><span class="p">]</span>
 <span class="n">generated_script</span> <span class="o">=</span> <span class="n">generate</span><span class="p">(</span><span class="n">trained_rnn</span><span class="p">,</span> <span class="n">vocab_to_int</span><span class="p">[</span><span class="n">prime_word</span> <span class="o">+</span> <span class="s1">&#39;:&#39;</span><span class="p">],</span> <span class="n">int_to_vocab</span><span class="p">,</span> <span class="n">token_dict</span><span class="p">,</span> <span class="n">vocab_to_int</span><span class="p">[</span><span class="n">pad_word</span><span class="p">],</span> <span class="n">gen_length</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">generated_script</span><span class="p">)</span>
@@ -14921,8 +14808,7 @@ jerry: i don&#39;t know if i could have lasted. i don&#39;t know..
 <p>kramer:(laughing) you know...(to jerry) you don't know.</p>
 </blockquote>
 <p>You can see that there are multiple characters that say (somewhat) complete sentences, but it doesn't have to be perfect! It takes quite a while to get good results, and often, you'll have to use a smaller vocabulary (and discard uncommon words), or get more data.  The Seinfeld dataset is about 3.4 MB, which is big enough for our purposes; for script generation you'll want more than 1 MB of text, generally.</p>
-<h1 id="Submitting-This-Project">Submitting This Project<a class="anchor-link" href="#Submitting-This-Project">&#182;</a></h1><p>When submitting this project, make sure to run all the cells before saving the notebook. Save the notebook file as "dlnd_tv_script_generation.ipynb" and save another copy as an HTML file by clicking "File" -&gt; "Download as.."-&gt;"html". Include the "helper.py" and "problem_unittests.py" files in your submission. Once you download these files, compress them into one zip file for submission.</p>
-
+<h1 id="Thank-you!">Thank you!<a class="anchor-link" href="#Thank-you!">&#182;</a></h1>
 </div>
 </div>
 </div>
